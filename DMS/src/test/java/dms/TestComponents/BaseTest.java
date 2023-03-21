@@ -1,8 +1,15 @@
 package dms.TestComponents;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,11 +20,10 @@ import org.testng.annotations.BeforeMethod;
 import dms.PageObjects.LoginPage;
 
 
-
-
 public class BaseTest {
 	
 	public WebDriver driver;
+	public Logger log;
 	public LoginPage loginpg;
 	
 	public WebDriver initializeDriver() throws IOException
@@ -52,7 +58,16 @@ public class BaseTest {
 		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
 		driver.get("https://dmsdev.datamatica.uk");
+		log= LogManager.getLogger(BaseTest.class);
 		return driver;	
+	}
+	public String getScreenshot(String testCaseName,WebDriver driver) throws IOException
+	{
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		File file = new File(System.getProperty("user.dir")+"//reports//"+testCaseName+".png");
+		FileUtils.copyFile(source, file);
+		return System.getProperty("user.dir")+"//reports//"+testCaseName+".png";
 	}
 	
 	@BeforeMethod(alwaysRun = true)

@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="dms.Test.DepartmentsTest">
+      <class name="dms.Test.ProjectsTest">
         <methods>
-          <include name="LoginPage"/>
           <include name="tearDown"/>
-          <include name="addDocument"/>
+          <include name="LoginPage"/>
+          <include name="verifyFolderShare"/>
+          <include name="folderShare"/>
+          <include name="addProjects"/>
         </methods>
-      </class> <!-- dms.Test.DepartmentsTest -->
+      </class> <!-- dms.Test.ProjectsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

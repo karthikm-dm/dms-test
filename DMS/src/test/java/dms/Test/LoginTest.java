@@ -11,9 +11,12 @@ public class LoginTest extends BaseTest{
 	public void logintest() throws InterruptedException
 	{
 		loginpg.login("karthikm@datamatica.uk", "Dm@12345");
+		log.info("login success");
 		Assert.assertEquals(loginpg.verifyHomepage(),"Dashboard");
+		log.info("homepage verified");
 		loginpg.profileIcon();
 		loginpg.logout();
+		log.info("logged out successfully");
 	}
 
 }

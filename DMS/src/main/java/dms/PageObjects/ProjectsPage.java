@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -267,9 +266,9 @@ public class ProjectsPage extends AbstractComponent{
 			if(folname.contains(newfol))
 			{
 				folders.get(i).click();
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				optionsIcon.get(i-1).click();
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				return true;
 			}
 		}
@@ -277,8 +276,8 @@ public class ProjectsPage extends AbstractComponent{
 	}
 	public void permission() throws InterruptedException
 	{
-		Thread.sleep(3000);
-		elementWait(permission);
+		Thread.sleep(2000);
+		//elementWait(permission);
 		permission.click();
 		Thread.sleep(2000);
 		
