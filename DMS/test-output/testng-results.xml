@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="7" total="8" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-03-21T12:41:46 IST" name="Default suite" finished-at="2023-03-21T12:43:13 IST" duration-ms="87274">
+    <groups>
+    </groups>
+    <test started-at="2023-03-21T12:41:46 IST" name="Default test" finished-at="2023-03-21T12:43:13 IST" duration-ms="87274">
+      <class name="dms.Test.DepartmentsTest">
+        <test-method is-config="true" signature="LoginPage()[pri:0, instance:dms.Test.DepartmentsTest@72967906]" started-at="2023-03-21T12:41:46 IST" name="LoginPage" finished-at="2023-03-21T12:41:55 IST" duration-ms="9028" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginPage -->
+        <test-method signature="documentShare()[pri:7, instance:dms.Test.DepartmentsTest@72967906]" started-at="2023-03-21T12:41:55 IST" name="documentShare" finished-at="2023-03-21T12:43:13 IST" duration-ms="77982" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- documentShare -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:dms.Test.DepartmentsTest@72967906]" started-at="2023-03-21T12:43:13 IST" name="tearDown" finished-at="2023-03-21T12:43:13 IST" duration-ms="181" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- dms.Test.DepartmentsTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
