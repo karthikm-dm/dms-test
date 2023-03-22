@@ -22,7 +22,7 @@ public class ProjectsTest extends BaseTest {
 		Assert.assertTrue(projpg.selProject("proj111"));
 		projpg.addProjRole("QA");
 		projpg.save();
-		Assert.assertEquals(projpg.alert(),"Role created successfully");
+		Assert.assertEquals(projpg.alert(),"Role created successfullyy");
 		Assert.assertTrue(projpg.verifyProjectRole("QA"));
 		projpg.addprojUsers("QA");
 		projpg.chooseUserDropdown();
@@ -42,6 +42,7 @@ public class ProjectsTest extends BaseTest {
 		projpg.save();
 		Assert.assertEquals(projpg.alert(),"Permission added successfully");
 	}
+
 	
 	@Test(priority = 2)
 	public void verifyFolderPermission() throws InterruptedException
@@ -148,4 +149,6 @@ public class ProjectsTest extends BaseTest {
 		Assert.assertTrue(projpg.selFolder("sharefolder"));
 		Assert.assertTrue(projpg.verifyDocument("testdatas"));
 	}
+	
+
 }

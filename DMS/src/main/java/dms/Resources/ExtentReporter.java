@@ -8,8 +8,8 @@ public class ExtentReporter {
 	{
 		String path=System.getProperty("user.dir")+"//reports//index.html";
 		ExtentSparkReporter reporter= new ExtentSparkReporter(path);
-		reporter.config().setReportName("Eidsa Test");
-		reporter.config().setDocumentTitle("EidsaExtentReport");
+		reporter.config().setReportName("DMS Test");
+		reporter.config().setDocumentTitle("DMSExtentReport");
 		ExtentReports extent=new ExtentReports();
 		extent.attachReporter(reporter);
 		extent.setSystemInfo("Tester", "Karthik");

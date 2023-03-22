@@ -8,11 +8,14 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">13,391</td><td></td><td></td></tr>
+<tr><th colspan="8">DMS Sanity </th></tr>
+<tr><td><a href="#t0">Projects Test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">46,552</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">dms.Test.LoginTest</td><td><a href="#m0">logintest</a></td><td rowspan="1">1679399055288</td><td rowspan="1">5453</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">DMS Sanity </th></tr></tbody><tbody id="t0"><tr><th colspan="4">Projects Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">dms.Test.ProjectsTest</td><td><a href="#m0">addProjects</a></td><td rowspan="1">1679481046304</td><td rowspan="1">36919</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">dms.Test.LoginTest#logintest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Projects Test</h2><h3 id="m0">dms.Test.ProjectsTest#addProjects</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Role created successfullyy] but found [Role created successfully]
+	at dms.Test.ProjectsTest.addProjects(ProjectsTest.java:25)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 33 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
