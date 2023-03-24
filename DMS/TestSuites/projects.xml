@@ -5,16 +5,11 @@
 <listeners>
 	<listener class-name="dms.TestComponents.Listeners"></listener>
 </listeners>
-
-  <test thread-count="5" name="Departments Test">
-    <classes>
-      <class name="dms.Test.DepartmentsTest"/>
-    </classes> 
-  </test>
   
   <test thread-count="5" name="Projects Test" >  
     <classes>  
       <class name="dms.Test.ProjectsTest"/>
     </classes>
   </test > <!-- Test -->
+
 </suite> <!-- Suite -->

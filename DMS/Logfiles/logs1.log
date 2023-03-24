@@ -1,3 +1,65 @@
 [INFO ] 2023-03-22 15:19:53.338 [main] BaseTest - login success
 [INFO ] 2023-03-22 15:19:53.454 [main] BaseTest - homepage verified
 [INFO ] 2023-03-22 15:19:56.399 [main] BaseTest - logged out successfully
+[INFO ] 2023-03-23 10:03:15.643 [main] BaseTest - Project created
+[INFO ] 2023-03-23 10:04:28.193 [main] BaseTest - Folder added
+[INFO ] 2023-03-23 10:10:48.572 [main] BaseTest - Project user added
+[INFO ] 2023-03-23 10:11:08.241 [main] BaseTest - Project folder created
+[INFO ] 2023-03-23 10:13:20.401 [main] BaseTest - Folder permission added
+[INFO ] 2023-03-24 12:19:35.856 [main] BaseTest - login success
+[INFO ] 2023-03-24 12:19:35.933 [main] BaseTest - homepage verified
+[INFO ] 2023-03-24 12:19:37.643 [main] BaseTest - logged out successfully
+[INFO ] 2023-03-24 12:28:09.021 [main] BaseTest - Project created
+[INFO ] 2023-03-24 12:29:15.409 [main] BaseTest - Folder added
+[INFO ] 2023-03-24 12:31:06.538 [main] BaseTest - Logged in
+[INFO ] 2023-03-24 12:31:24.531 [main] BaseTest - sub department added
+[INFO ] 2023-03-24 12:31:51.757 [main] BaseTest - Department folder created
+[INFO ] 2023-03-24 12:32:17.274 [main] BaseTest - Folder permission added
+[INFO ] 2023-03-24 12:32:48.977 [main] BaseTest - folder permission verified
+[INFO ] 2023-03-24 12:33:29.633 [main] BaseTest - Folder created
+[INFO ] 2023-03-24 12:33:57.037 [main] BaseTest - Folder shared
+[INFO ] 2023-03-24 12:34:25.129 [main] BaseTest - Folder share verified
+[INFO ] 2023-03-24 12:36:55.501 [main] BaseTest - login success
+[INFO ] 2023-03-24 12:36:55.580 [main] BaseTest - homepage verified
+[INFO ] 2023-03-24 12:36:59.816 [main] BaseTest - logged out successfully
+[INFO ] 2023-03-24 12:49:50.880 [main] BaseTest - Logged in
+[INFO ] 2023-03-24 12:52:10.110 [main] BaseTest - Logged in
+[INFO ] 2023-03-24 12:59:55.443 [main] BaseTest - Project created
+[INFO ] 2023-03-24 13:01:02.260 [main] BaseTest - Folder added
+[INFO ] 2023-03-24 14:54:36.329 [main] BaseTest - Project created
+[INFO ] 2023-03-24 15:05:45.614 [main] BaseTest - Project created
+[INFO ] 2023-03-24 15:08:07.248 [main] BaseTest - Logged in
+[INFO ] 2023-03-24 15:08:53.467 [main] BaseTest - folder permission verified
+[INFO ] 2023-03-24 15:10:02.830 [main] BaseTest - Folder share verified
+[INFO ] 2023-03-24 15:18:01.757 [main] BaseTest - Project created
+[INFO ] 2023-03-24 15:18:16.722 [main] BaseTest - Project Role added
+[INFO ] 2023-03-24 15:18:40.572 [main] BaseTest - Project user added
+[INFO ] 2023-03-24 15:19:00.318 [main] BaseTest - Project folder created
+[INFO ] 2023-03-24 15:19:31.927 [main] BaseTest - Project selected
+[INFO ] 2023-03-24 15:20:11.405 [main] BaseTest - Folder added
+[INFO ] 2023-03-24 15:31:14.991 [main] BaseTest - Project created
+[INFO ] 2023-03-24 15:31:29.946 [main] BaseTest - Project Role added
+[INFO ] 2023-03-24 15:31:53.798 [main] BaseTest - Project user added
+[INFO ] 2023-03-24 15:32:13.396 [main] BaseTest - Project folder created
+[INFO ] 2023-03-24 15:32:46.861 [main] BaseTest - Project selected
+[INFO ] 2023-03-24 15:34:49.037 [main] BaseTest - Project created
+[INFO ] 2023-03-24 15:35:04.016 [main] BaseTest - Project Role added
+[INFO ] 2023-03-24 15:35:27.908 [main] BaseTest - Project user added
+[INFO ] 2023-03-24 15:35:47.561 [main] BaseTest - Project folder created
+[INFO ] 2023-03-24 15:45:35.950 [main] BaseTest - Project created
+[INFO ] 2023-03-24 15:45:50.949 [main] BaseTest - Project Role added
+[INFO ] 2023-03-24 15:46:14.800 [main] BaseTest - Project user added
+[INFO ] 2023-03-24 15:46:34.403 [main] BaseTest - Project folder created
+[INFO ] 2023-03-24 15:51:13.092 [main] BaseTest - Project created
+[INFO ] 2023-03-24 15:51:28.032 [main] BaseTest - Project Role added
+[INFO ] 2023-03-24 15:51:52.015 [main] BaseTest - Project user added
+[INFO ] 2023-03-24 15:52:11.756 [main] BaseTest - Project folder created
+[INFO ] 2023-03-24 15:52:37.732 [main] BaseTest - Folder permission added
+[INFO ] 2023-03-24 15:55:31.758 [main] BaseTest - Project selected
+[INFO ] 2023-03-24 15:55:38.044 [main] BaseTest - Project folder permission verified
+[INFO ] 2023-03-24 15:56:12.478 [main] BaseTest - Folder added
+[INFO ] 2023-03-24 15:56:40.637 [main] BaseTest - Folder shared
+[INFO ] 2023-03-24 15:57:03.921 [main] BaseTest - Project folder share verified
+[INFO ] 2023-03-24 15:57:55.650 [main] BaseTest - Project document added
+[INFO ] 2023-03-24 15:58:31.735 [main] BaseTest - Project document permission verified
+[INFO ] 2023-03-24 15:59:23.626 [main] BaseTest - Project document added

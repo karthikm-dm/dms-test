@@ -12,7 +12,7 @@ public class ExtentReporter {
 		reporter.config().setDocumentTitle("DMSExtentReport");
 		ExtentReports extent=new ExtentReports();
 		extent.attachReporter(reporter);
-		extent.setSystemInfo("Tester", "Karthik");
+		extent.setSystemInfo("Karthik","Tester");
 
 		return extent;
 	}

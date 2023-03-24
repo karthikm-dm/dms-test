@@ -1,6 +1,14 @@
 package dms.Test;
 
+import java.io.FileInputStream;
+
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import dms.PageObjects.DepartmentsPage;
@@ -8,12 +16,14 @@ import dms.TestComponents.BaseTest;
 
 public class DepartmentsTest extends BaseTest{
 	
+	DataFormatter formatter=new DataFormatter();
 	//Adding main department
 	
-	@Test(priority = 1)
-	public void addDepartment() throws InterruptedException
+	@Test(priority = 1,dataProvider = "data")
+	public void addDepartment(String pemail,String ppass,String semail,String spass,String maindept,String subdept,String pfolder,String desig,String username,String sfolder,String doctitle,String docowner,String docversion,String docpath,String docname) throws InterruptedException
 	{
-		loginpg.login("karthikm@datamatica.uk", "Dm@12345");
+		loginpg.login(pemail,ppass);
+		log.info("Logged in");
 		DepartmentsPage departpg=new DepartmentsPage(driver);
 		//creating main department
 		
@@ -24,149 +34,160 @@ public class DepartmentsTest extends BaseTest{
 //		Assert.assertEquals(departpg.departmentAlert(),"Department created successfully");
 		
 		//creating sub department
-		Assert.assertTrue(departpg.selMainDepartment("demo"));
-		departpg.createDepartment("TestDemo");
+		Assert.assertTrue(departpg.selMainDepartment(maindept));
+		departpg.createDepartment(subdept);
 		departpg.addDepart();
 		Assert.assertEquals(departpg.departmentAlert(),"Department created successfully");
-		
+		log.info("sub department added");
 		//creating folder under sub department
-		departpg.selMainDepartment("demo");
-		departpg.selSubDepartment("TestDemo");  //sub dept
-		Assert.assertEquals(departpg.verifyFolderHead(),"TestDemo");
+		departpg.selMainDepartment(maindept);
+		departpg.selSubDepartment(subdept);  //sub dept
+		Assert.assertEquals(departpg.verifyFolderHead(),subdept);
 		
 		departpg.createFolder();
-		departpg.addFolder("folderTest");
+		departpg.addFolder(pfolder);
 		departpg.saveFolder();
 		Assert.assertEquals(departpg.folderAlert(),"Folder created successfully");
-		departpg.selFolder("folderTest");
+		log.info("Department folder created");
+		departpg.selFolder(pfolder);
 		departpg.permission();
-		departpg.selPermissionDesig("Test");
-		departpg.selUser("testuser1");
+		departpg.selPermissionDesig(desig);
+		departpg.selUser(username);
 		departpg.savePermission();
 		Assert.assertEquals(departpg.permissionAlert(),"Permission added successfully");
+		log.info("Folder permission added");
 	}
-	@Test(priority = 2)
-	public void verifyFolderPermission() throws InterruptedException
+	@Test(priority = 2,dataProvider = "data")
+	public void verifyFolderPermission(String pemail,String ppass,String semail,String spass,String maindept,String subdept,String pfolder,String desig,String username,String sfolder,String doctitle,String docowner,String docversion,String docpath,String docname) throws InterruptedException
 	{
-		loginpg.login("testuser1@yopmail.com", "Ksfe@123");
+		loginpg.login(semail,spass);
 		DepartmentsPage departpg=new DepartmentsPage(driver);
 		departpg.departmentsmenu();
-		departpg.selMainDepartment("demo");
-		departpg.selSubDepartment("TestDemo");
-		Assert.assertEquals(departpg.verifyFolderHead(),"TestDemo");
-		Assert.assertTrue(departpg.verifyfolderpermission("folderTest"));
+		departpg.selMainDepartment(maindept);
+		departpg.selSubDepartment(subdept);
+		Assert.assertEquals(departpg.verifyFolderHead(),subdept);
+		Assert.assertTrue(departpg.verifyfolderpermission(pfolder));
+		log.info("folder permission verified");
 	}
-	@Test(priority = 3)
-	public void folderShare() throws InterruptedException
+	@Test(priority = 3,dataProvider = "data")
+	public void folderShare(String pemail,String ppass,String semail,String spass,String maindept,String subdept,String pfolder,String desig,String username,String sfolder,String doctitle,String docowner,String docversion,String docpath,String docname) throws InterruptedException
 	{
-		loginpg.login("karthikm@datamatica.uk", "Dm@12345");
+		loginpg.login(pemail,ppass);
 		DepartmentsPage departpg=new DepartmentsPage(driver);
 		departpg.departmentsmenu();
-		departpg.selMainDepartment("demo");
-		departpg.selSubDepartment("TestDemo");
-		Assert.assertEquals(departpg.verifyFolderHead(),"TestDemo");
+		departpg.selMainDepartment(maindept);
+		departpg.selSubDepartment(subdept);
+		Assert.assertEquals(departpg.verifyFolderHead(),subdept);
 		
 		departpg.createFolder();
-		departpg.addFolder("folderShare");
+		departpg.addFolder(sfolder);
 		departpg.saveFolder();
 		Assert.assertEquals(departpg.folderAlert(),"Folder created successfully");
-		Assert.assertTrue(departpg.selFolder("folderShare"));
+		log.info("Folder created");
+		Assert.assertTrue(departpg.selFolder(sfolder));
 		departpg.sharefolder();
-		departpg.selPermissionDesig("Test");
-		departpg.selUser("testuser1");
+		departpg.selPermissionDesig(desig);
+		departpg.selUser(username);
 		departpg.shareBtn();
 		Assert.assertEquals(departpg.permissionAlert(),"Folder shared successfully");
+		log.info("Folder shared");
 	}
-	@Test(priority = 4)
-	public void verifyFolderShare() throws InterruptedException
+	@Test(priority = 4,dataProvider = "data")
+	public void verifyFolderShare(String pemail,String ppass,String semail,String spass,String maindept,String subdept,String pfolder,String desig,String username,String sfolder,String doctitle,String docowner,String docversion,String docpath,String docname) throws InterruptedException
 	{
-		loginpg.login("testuser1@yopmail.com", "Ksfe@123");
+		loginpg.login(semail,spass);
 		DepartmentsPage departpg=new DepartmentsPage(driver);
 		departpg.departmentsmenu();
-		departpg.selMainDepartment("demo");
-		departpg.selSubDepartment("TestDemo");
-		Assert.assertEquals(departpg.verifyFolderHead(),"TestDemo");
-		Assert.assertTrue(departpg.verifyfolderpermission("folderShare"));
+		departpg.selMainDepartment(maindept);
+		departpg.selSubDepartment(subdept);
+		Assert.assertEquals(departpg.verifyFolderHead(),subdept);
+		Assert.assertTrue(departpg.verifyfolderpermission(sfolder));
+		log.info("Folder share verified");
 	}
-	@Test(priority = 5)
-	public void addDocument() throws Exception
+	@Test(priority = 5,dataProvider = "data")
+	public void addDocument(String pemail,String ppass,String semail,String spass,String maindept,String subdept,String pfolder,String desig,String username,String sfolder,String doctitle,String docowner,String docversion,String docpath,String docname) throws Exception
 	{
-		loginpg.login("karthikm@datamatica.uk", "Dm@12345");
+		loginpg.login(pemail,ppass);
 		DepartmentsPage departpg=new DepartmentsPage(driver);
 		departpg.departmentsmenu();
-		departpg.selMainDepartment("demo"); //main dep
-		departpg.selSubDepartment("TestDemo"); //sub dep
-		Assert.assertEquals(departpg.verifyFolderHead(),"TestDemo");
-		Assert.assertTrue(departpg.createDocument("folderTest"));	//folder
+		departpg.selMainDepartment(maindept); //main dep
+		departpg.selSubDepartment(subdept); //sub dep
+		Assert.assertEquals(departpg.verifyFolderHead(),subdept);
+		Assert.assertTrue(departpg.createDocument(pfolder));	//folder
 		departpg.createDocumentIcon();
-		departpg.fillDocument("doctest","KarthikM");
-		departpg.saveDocument("v1");
-		departpg.uploadDoc("C:\\Users\\DM Administrator\\Documents\\testdatas.xls");
+		departpg.fillDocument(doctitle,docowner);
+		departpg.saveDocument(docversion);
+		departpg.uploadDoc(docpath);
 		departpg.saveFolder();
 		Assert.assertEquals(departpg.documentAlert(),"Documents saved successfully");
-
-		Assert.assertTrue(departpg.verifyDocument("testdatas.xls"));
-		Assert.assertTrue(departpg.documentActions("testdatas.xls"));
+		
+		Assert.assertTrue(departpg.verifyDocument(docname));
+		log.info("Document added");
+		Assert.assertTrue(departpg.documentActions(docname));
 		departpg.permission();
-		departpg.selPermissionDesig("Test");
-		departpg.selUser("testuser1");
+		departpg.selPermissionDesig(desig);
+		departpg.selUser(username);
 		departpg.savePermission();
 		Assert.assertEquals(departpg.permissionAlert(),"Permission added successfully");
-		
+		log.info("Document permission added");
 	}
-	@Test(priority = 6)
-	public void verifyDocumentsPermission() throws InterruptedException
+	@Test(priority = 6,dataProvider = "data")
+	public void verifyDocumentsPermission(String pemail,String ppass,String semail,String spass,String maindept,String subdept,String pfolder,String desig,String username,String sfolder,String doctitle,String docowner,String docversion,String docpath,String docname) throws InterruptedException
 	{
-		loginpg.login("testuser1@yopmail.com", "Ksfe@123");
+		loginpg.login(semail,spass);
 		DepartmentsPage departpg=new DepartmentsPage(driver);
 		departpg.departmentsmenu();
-		departpg.selMainDepartment("demo");
-		departpg.selSubDepartment("TestDemo");
-		Assert.assertEquals(departpg.verifyFolderHead(),"TestDemo");
-		Assert.assertTrue(departpg.createDocument("folderTest"));
-		Assert.assertTrue(departpg.verifyDocument("testdatas.xls"));
+		departpg.selMainDepartment(maindept);
+		departpg.selSubDepartment(subdept);
+		Assert.assertEquals(departpg.verifyFolderHead(),subdept);
+		Assert.assertTrue(departpg.createDocument(pfolder));
+		Assert.assertTrue(departpg.verifyDocument(docname));
+		log.info("Department document permission verified");
 	}
 	
 	
-	@Test(priority = 7)
-	public void documentShare() throws Exception
+	@Test(priority = 7,dataProvider = "data")
+	public void documentShare(String pemail,String ppass,String semail,String spass,String maindept,String subdept,String pfolder,String desig,String username,String sfolder,String doctitle,String docowner,String docversion,String docpath,String docname) throws Exception
 	{
-		loginpg.login("karthikm@datamatica.uk", "Dm@12345");
+		loginpg.login(pemail,ppass);
 		DepartmentsPage departpg=new DepartmentsPage(driver);
 		departpg.departmentsmenu();
-		departpg.selMainDepartment("demo");
-		departpg.selSubDepartment("TestDemo");
-		Assert.assertEquals(departpg.verifyFolderHead(),"TestDemo");
-		Assert.assertTrue(departpg.createDocument("folderShare"));
+		departpg.selMainDepartment(maindept);
+		departpg.selSubDepartment(subdept);
+		Assert.assertEquals(departpg.verifyFolderHead(),subdept);
+		Assert.assertTrue(departpg.createDocument(sfolder));
 		departpg.createDocumentIcon();
-		departpg.fillDocument("doctest","KarthikM");
-		departpg.saveDocument("v1");
-		departpg.uploadDoc("C:\\Users\\DM Administrator\\Documents\\testdatasample.xlsx");
+		departpg.fillDocument(doctitle,docowner);
+		departpg.saveDocument(docversion);
+		departpg.uploadDoc(docpath);
 		departpg.saveFolder();
 		Assert.assertEquals(departpg.documentAlert(),"Documents saved successfully");
-
+		
 		//verify document is present
-		Assert.assertTrue(departpg.verifyDocument("testdatasample.xlsx"));
-		Assert.assertTrue(departpg.documentActions("testdatasample.xlsx"));
+		Assert.assertTrue(departpg.verifyDocument(docname));
+		log.info("Document added");
+		Assert.assertTrue(departpg.documentActions(docname));
 		
 		
 		departpg.sharefolder();
-		departpg.selPermissionDesig("Test");
-		departpg.selUser("testuser1");
+		departpg.selPermissionDesig(desig);
+		departpg.selUser(username);
 		departpg.saveBtn();
 		Assert.assertEquals(departpg.permissionAlert(),"Document shared successfully");
+		log.info("Document shared");
 	}
-	@Test(priority = 8)
-	public void verifyDocumentShare() throws InterruptedException
+	@Test(priority = 8,dataProvider = "data")
+	public void verifyDocumentShare(String pemail,String ppass,String semail,String spass,String maindept,String subdept,String pfolder,String desig,String username,String sfolder,String doctitle,String docowner,String docversion,String docpath,String docname) throws InterruptedException
 	{
-		loginpg.login("testuser1@yopmail.com", "Ksfe@123");
+		loginpg.login(semail,spass);
 		DepartmentsPage departpg=new DepartmentsPage(driver);
 		departpg.departmentsmenu();
-		departpg.selMainDepartment("demo");
-		departpg.selSubDepartment("TestDemo");
-		Assert.assertEquals(departpg.verifyFolderHead(),"TestDemo");
-		Assert.assertTrue(departpg.createDocument("folderShare"));
-		Assert.assertTrue(departpg.verifyDocument("testdatasample.xlsx"));
+		departpg.selMainDepartment(maindept);
+		departpg.selSubDepartment(subdept);
+		Assert.assertEquals(departpg.verifyFolderHead(),subdept);
+		Assert.assertTrue(departpg.createDocument(sfolder));
+		Assert.assertTrue(departpg.verifyDocument(docname));
+		log.info("Department document share verified");
 	}
 //	@Test
 //	public void documentEdit() throws Exception
@@ -182,4 +203,27 @@ public class DepartmentsTest extends BaseTest{
 //		departpg.editOption();
 //		
 //	}
+	
+	
+	@DataProvider(name="data")
+	public Object[][] getData() throws Exception 
+	{
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/dms/Resources/dmsdata.xlsx");
+		XSSFWorkbook wb=new XSSFWorkbook(fis);
+		XSSFSheet sheet= wb.getSheetAt(0);
+		int rowCount=sheet.getPhysicalNumberOfRows();
+		XSSFRow row=sheet.getRow(1);
+		int colCount=row.getLastCellNum();
+		Object data[][]=new Object[rowCount-1][colCount];
+		for(int i=0;i<(rowCount-1);i++)
+		{
+			row=sheet.getRow(i+1);
+			for(int j=0;j<colCount;j++)
+			{
+				XSSFCell cell=row.getCell(j);
+				data[i][j]=formatter.formatCellValue(cell);
+			}
+		}
+		return data;	
+	}	
 }

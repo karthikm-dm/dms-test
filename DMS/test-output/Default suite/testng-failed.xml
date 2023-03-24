@@ -5,11 +5,9 @@
     <classes>
       <class name="dms.Test.ProjectsTest">
         <methods>
-          <include name="tearDown"/>
           <include name="LoginPage"/>
-          <include name="verifyFolderShare"/>
-          <include name="folderShare"/>
-          <include name="addProjects"/>
+          <include name="tearDown"/>
+          <include name="addProjects" invocation-numbers="0"/>
         </methods>
       </class> <!-- dms.Test.ProjectsTest -->
     </classes>
